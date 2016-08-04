@@ -1,6 +1,6 @@
 import os
 from .pythonfile import *
-#from .cythonfile import *
+from .cythonfile import *
 
 
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'VERSION')) as version_file:
