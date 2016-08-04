@@ -10,10 +10,13 @@ def readme():
     with open('base/README.rst') as f:
         return f.read()
 
+compile_flags = [ '-O3', ]
+
 extensions = [
-    Extension(
-        "base/cythonfile",
-        ["base/cythonfile.c"]
+    Extension(name ="base/cythonfile",
+              sources = ["base/cythonfile.c"],
+              include_dirs = ['.'],
+              extra_compile_args=compile_flags
     )
 ]
 
