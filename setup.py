@@ -11,12 +11,16 @@ def readme():
         return f.read()
 
 compile_flags = [ '-O3', ]
-
+import os
+os.environ["CC"]='g++'
+os.environ["CXX"]='g++'
+from numpy import get_include
 extensions = [
     Extension(name ="base/cythonfile",
               sources = ["base/cythonfile.c"],
-              include_dirs = ['.'],
-              extra_compile_args=compile_flags
+              include_dirs = ['.',get_include()],
+              extra_compile_args=compile_flags,
+              language = 'c++'
     )
 ]
 
